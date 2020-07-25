@@ -1,4 +1,4 @@
-package com.example.paginglibrary
+package com.example.paginglibrary.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.paginglibrary.databinding.ItemCellBinding
 import com.example.paginglibrary.model.UserModel
 
-class Adapter : PagedListAdapter<UserModel, Adapter.MyViewHolder>(DIFF_UTIL) {
+/**
+ * @author Yogesh Paliyal
+ * techpaliyal@gmail.com
+ * http://techpaliyal.com
+ */
+class Adapter : PagedListAdapter<UserModel, Adapter.MyViewHolder>(
+    DIFF_UTIL
+) {
 
     companion object{
         val DIFF_UTIL = object: DiffUtil.ItemCallback<UserModel>() {

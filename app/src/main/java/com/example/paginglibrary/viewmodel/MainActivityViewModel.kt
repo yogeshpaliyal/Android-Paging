@@ -9,7 +9,11 @@ import com.example.paginglibrary.datasource.DataSourceFactory
 import com.example.paginglibrary.datasource.ItemDataSource
 import com.example.paginglibrary.model.UserModel
 
-
+/**
+ * @author Yogesh Paliyal
+ * techpaliyal@gmail.com
+ * http://techpaliyal.com
+ */
 class MainActivityViewModel() : ViewModel(){
     var dataList: LiveData<PagedList<UserModel>>? = null
     var liveDataSource: LiveData<PageKeyedDataSource<Int, UserModel>>? = null

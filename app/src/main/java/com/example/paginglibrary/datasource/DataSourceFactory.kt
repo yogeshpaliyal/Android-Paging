@@ -5,7 +5,11 @@ import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
 import com.example.paginglibrary.model.UserModel
 
-
+/**
+ * @author Yogesh Paliyal
+ * techpaliyal@gmail.com
+ * http://techpaliyal.com
+ */
 class DataSourceFactory : DataSource.Factory<Int, UserModel>(){
 
     //creating the mutable live data

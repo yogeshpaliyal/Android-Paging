@@ -10,6 +10,11 @@ import com.google.gson.Gson
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
+/**
+ * @author Yogesh Paliyal
+ * techpaliyal@gmail.com
+ * http://techpaliyal.com
+ */
 class ItemDataSource : PageKeyedDataSource<Int, UserModel>(){
     //the size of a page that we want
     companion object {
