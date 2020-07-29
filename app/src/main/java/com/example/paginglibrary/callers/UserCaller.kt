@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
  * http://techpaliyal.com
  */
 class UserCaller {
-     fun  getUsers(page: Int, pageSize: Int): Observable<BaseApiModel>{
+     fun  getUsers(page: Int?, pageSize: Int): Observable<BaseApiModel>{
         return Rx2AndroidNetworking.get(Apis.USERS)
             .addQueryParameter("page",page.toString())
             .addQueryParameter("page_size",pageSize.toString())

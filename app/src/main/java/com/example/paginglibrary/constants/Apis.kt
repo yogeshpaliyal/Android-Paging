@@ -7,6 +7,8 @@ package com.example.paginglibrary.constants
  * http://techpaliyal.com
  */
 object Apis {
+    const val PAGE_SIZE = 50
+
     const val BASE_API = "https://techpaliyal.com/api/"
 
     const val USERS = BASE_API + "pagination.php" //page, page_size

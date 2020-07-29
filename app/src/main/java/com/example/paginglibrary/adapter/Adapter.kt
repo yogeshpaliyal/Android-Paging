@@ -3,6 +3,7 @@ package com.example.paginglibrary.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.paginglibrary.databinding.ItemCellBinding
@@ -13,7 +14,7 @@ import com.example.paginglibrary.model.UserModel
  * techpaliyal@gmail.com
  * http://techpaliyal.com
  */
-class Adapter : PagedListAdapter<UserModel, Adapter.MyViewHolder>(
+class Adapter : PagingDataAdapter<UserModel, Adapter.MyViewHolder>(
     DIFF_UTIL
 ) {
 
