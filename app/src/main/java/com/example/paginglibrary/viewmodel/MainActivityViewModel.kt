@@ -7,6 +7,7 @@ import androidx.paging.rxjava2.cachedIn
 import androidx.paging.rxjava2.observable
 import com.example.paginglibrary.constants.Apis
 import com.example.paginglibrary.datasource.TechPaliyalPagingSource
+import com.example.paginglibrary.datasource.TechPaliyalRemoteMediator
 import com.example.paginglibrary.model.UserModel
 import io.reactivex.Observable
 import kotlinx.coroutines.flow.Flow
@@ -26,7 +27,9 @@ class MainActivityViewModel() : ViewModel(){
                 pageSize = Apis.PAGE_SIZE,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { TechPaliyalPagingSource() }
+            remoteMediator = { TechPaliyalRemoteMediator() }
+        ,
+            pagingSourceFactory = 
         ).flow.cachedIn(viewModelScope)
         return newData
     }

@@ -18,7 +18,7 @@ class UserModel {
     @SerializedName("id")
     @ColumnInfo(name = "id")
     @Expose
-    var id : Int ?= null
+    var id : Long ?= null
 
     @SerializedName("name")
     @ColumnInfo(name = "name")

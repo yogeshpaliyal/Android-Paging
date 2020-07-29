@@ -9,7 +9,8 @@ import com.google.gson.annotations.SerializedName
  * techpaliyal@gmail.com
  * http://techpaliyal.com
  */
-abstract class PaginationBaseModel {
+
+open class PaginationBaseModel {
     @SerializedName("current_page")
     @Expose
     var current_page = 0

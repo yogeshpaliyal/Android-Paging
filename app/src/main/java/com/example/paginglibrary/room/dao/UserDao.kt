@@ -27,10 +27,13 @@ abstract class UserDao {
     abstract fun findByName(first: String, last: String): UserModel*/
 
     @Insert
-    abstract suspend fun insertAll(vararg users: UserModel)
+    abstract suspend fun insertAll(users: List<UserModel>)
 
     @Delete
     abstract suspend fun delete(user: UserModel)
+
+    @Query("DELETE FROM users")
+    abstract suspend fun deleteAll()
 
     // The Int type parameter tells Room to use a PositionalDataSource object.
     @Query("SELECT * FROM users")

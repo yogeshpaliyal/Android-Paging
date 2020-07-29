@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.paginglibrary.model.RemoteKeys
 import com.example.paginglibrary.model.UserModel
+import com.example.paginglibrary.room.dao.RemoteKeysDao
 import com.example.paginglibrary.room.dao.UserDao
 
 
@@ -15,11 +17,12 @@ import com.example.paginglibrary.room.dao.UserDao
 * created on 26-07-2020 10:37
 */
 
-@Database(entities = arrayOf(UserModel::class), version = 1)
+@Database(entities = arrayOf(UserModel::class, RemoteKeys::class), version = 1)
 abstract class AppDatabase() : RoomDatabase() {
 
 
     abstract fun userDao(): UserDao
+    abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object{
         private lateinit var instance : AppDatabase
