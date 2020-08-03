@@ -1,6 +1,7 @@
 package com.example.paginglibrary.room.dao
 
 import androidx.paging.DataSource
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -37,5 +38,5 @@ abstract class UserDao {
 
     // The Int type parameter tells Room to use a PositionalDataSource object.
     @Query("SELECT * FROM users")
-    public abstract suspend fun concertsByDate(): DataSource.Factory<Int, UserModel>
+    public abstract fun concertsByDate(): PagingSource<Int, UserModel>
 }

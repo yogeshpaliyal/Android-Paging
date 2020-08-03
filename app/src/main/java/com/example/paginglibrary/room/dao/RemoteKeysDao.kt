@@ -1,10 +1,12 @@
 package com.example.paginglibrary.room.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.paginglibrary.model.RemoteKeys
+import com.example.paginglibrary.model.UserModel
 
 
 /*
@@ -17,6 +19,9 @@ import com.example.paginglibrary.model.RemoteKeys
 interface RemoteKeysDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(remoteKey: List<RemoteKeys>)
+
+    @Query("SELECT * FROM remote_keys")
+    fun getAll(): PagingSource<Int,RemoteKeys>
 
     @Query("SELECT * FROM remote_keys WHERE userId = :repoId")
     suspend fun remoteKeysRepoId(repoId: Long): RemoteKeys?

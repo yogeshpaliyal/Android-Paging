@@ -49,8 +49,4 @@ class TechPaliyalPagingSource : PagingSource<Int, UserModel>(){
 
     }
 
-    suspend fun fetchData(){
-
-    }
-
 }

@@ -48,13 +48,12 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        binding.recyclerView.adapter =  mAdapter.withLoadStateHeaderAndFooter(
-            header = ReposLoadStateAdapter { mAdapter.retry() },
+        binding.recyclerView.adapter =  mAdapter.withLoadStateFooter(
             footer = ReposLoadStateAdapter { mAdapter.retry() }
         )
 
         lifecycleScope.launch {
-            vm.hitApi()?.collect {
+            vm.hitApi()?.collectLatest {
                 mAdapter.submitData(it)
             }
         }

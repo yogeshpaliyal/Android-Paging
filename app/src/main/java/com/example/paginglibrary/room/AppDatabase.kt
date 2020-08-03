@@ -17,7 +17,7 @@ import com.example.paginglibrary.room.dao.UserDao
 * created on 26-07-2020 10:37
 */
 
-@Database(entities = arrayOf(UserModel::class, RemoteKeys::class), version = 1)
+@Database(entities = arrayOf(UserModel::class, RemoteKeys::class), version = 2)
 abstract class AppDatabase() : RoomDatabase() {
 
 
@@ -30,7 +30,8 @@ abstract class AppDatabase() : RoomDatabase() {
             instance = Room.databaseBuilder(
                 mContext.applicationContext,
                 AppDatabase::class.java, "database-name"
-            ).build()
+            ).fallbackToDestructiveMigration()
+                .fallbackToDestructiveMigrationOnDowngrade().build()
         }
 
         fun getInstance(): AppDatabase{

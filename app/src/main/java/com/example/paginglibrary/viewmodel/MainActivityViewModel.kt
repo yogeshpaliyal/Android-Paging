@@ -9,6 +9,7 @@ import com.example.paginglibrary.constants.Apis
 import com.example.paginglibrary.datasource.TechPaliyalPagingSource
 import com.example.paginglibrary.datasource.TechPaliyalRemoteMediator
 import com.example.paginglibrary.model.UserModel
+import com.example.paginglibrary.room.AppDatabase
 import io.reactivex.Observable
 import kotlinx.coroutines.flow.Flow
 
@@ -19,7 +20,6 @@ import kotlinx.coroutines.flow.Flow
  */
 class MainActivityViewModel() : ViewModel(){
 
-
     fun hitApi(): Flow<PagingData<UserModel>>?{
         //getting the live data source from data source factory
         val newData =   Pager(
@@ -27,9 +27,9 @@ class MainActivityViewModel() : ViewModel(){
                 pageSize = Apis.PAGE_SIZE,
                 enablePlaceholders = false
             ),
-            remoteMediator = { TechPaliyalRemoteMediator() }
-        ,
-            pagingSourceFactory = 
+            remoteMediator =  TechPaliyalRemoteMediator(AppDatabase.getInstance()),
+            pagingSourceFactory = { AppDatabase.getInstance().userDao().concertsByDate() }
+
         ).flow.cachedIn(viewModelScope)
         return newData
     }

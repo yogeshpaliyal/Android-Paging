@@ -21,7 +21,7 @@ class Adapter : PagingDataAdapter<UserModel, Adapter.MyViewHolder>(
     companion object{
         val DIFF_UTIL = object: DiffUtil.ItemCallback<UserModel>() {
             override fun areItemsTheSame(oldItem: UserModel, newItem: UserModel): Boolean {
-                return oldItem.name == newItem.name
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: UserModel, newItem: UserModel): Boolean {
